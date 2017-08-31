@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="springboot.mybatis.jta.mapper.database2.IncomeMapper">
+
+    <resultMap id="income" type="springboot.mybatis.jta.bean.database2.Income">
+        <id property="id" jdbcType="INTEGER" column="id"/>
+        <result property="userId" jdbcType="INTEGER" column="user_id"/>
+        <result property="operateDate" jdbcType="DATE" column="operate_date"/>
+    </resultMap>
+    
+    
+    <insert id="insert" parameterType="springboot.mybatis.jta.bean.database2.Income" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO income
+        (   
+            user_id,
+            operate_date
+        )
+        VALUES
+        (
+            #{userId},
+            #{operateDate}
+        )
+    </insert>
+    
+    
+</mapper>

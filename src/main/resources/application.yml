@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: test-23
+  jpa:
+    show-sql: true
+  jta:
+    enabled: true
+    atomikos:
+      datasource:
+        jta-user:
+          xa-data-source-class-name: org.postgresql.xa.PGXADataSource
+          xa-properties.databaseName: jta-user
+          xa-properties.serverName: localhost
+          xa-properties.portNumber: 5432
+          xa-properties.user: postgres
+          xa-properties.password: root
+          unique-resource-name: jta-user
+          max-pool-size: 25
+          min-pool-size: 3
+          max-lifetime: 20000
+          borrow-connection-timeout: 10000
+        jta-income: 
+          xa-data-source-class-name: org.postgresql.xa.PGXADataSource
+          xa-properties.databaseName: jta-income
+          xa-properties.serverName: localhost
+          xa-properties.portNumber: 5432
+          xa-properties.user: postgres
+          xa-properties.password: root
+          unique-resource-name: jta-income
+          max-pool-size: 25
+          min-pool-size: 3
+          max-lifetime: 20000
+          borrow-connection-timeout: 10000
+
+server:
+    contextPath: /test/
+    port: 9090
+    session:
+      timeout: 7200
+      timeoutCookieName: session-timeout
+mybatis: 
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.springboot.mybatis.jta

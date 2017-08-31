@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="springboot.mybatis.jta.mapper.database1.UserMapper">
+
+    <resultMap id="user" type="springboot.mybatis.jta.bean.database1.User">
+        <id property="id" jdbcType="INTEGER" column="id"/>
+        <result property="name" jdbcType="VARCHAR" column="name"/>
+        <result property="age" jdbcType="INTEGER" column="age"/>
+    </resultMap>
+    
+    <select id="getById" resultMap="user">
+        SELECT 
+            ID,
+            NAME,
+            AGE
+        FROM public."user"
+        WHERE ID = #{id}
+    </select>
+    
+    <insert id="insert" parameterType="springboot.mybatis.jta.bean.database1.User" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO public."user" 
+        (   
+            NAME,
+            AGE
+        )
+        VALUES
+        (
+            #{name},
+            #{age}
+        )
+    </insert>
+    
+    <delete id="delete">
+        DELETE FROM public."user"
+        WHERE ID = #{id}
+    </delete>
+    
+</mapper>
