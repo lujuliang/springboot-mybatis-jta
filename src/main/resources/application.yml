@@ -3,6 +3,10 @@ spring:
     name: test-23
   jpa:
     show-sql: true
+  cache: 
+    type: ehcache
+    ehcache: 
+      config: classpath:ehcache.xml
   jta:
     enabled: true
     atomikos:
@@ -31,7 +35,6 @@ spring:
           min-pool-size: 3
           max-lifetime: 20000
           borrow-connection-timeout: 10000
-
 server:
     contextPath: /test/
     port: 9090
@@ -41,3 +44,15 @@ server:
 mybatis: 
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.springboot.mybatis.jta
+  
+WebCache: 
+    entire: true
+    maxage:  10801
+    smaxage: 10801
+    policy: 'public'
+    cacheURL: 
+      - '/cache/lookup/users'
+      - '/cache/lookup/users/{userId}'
+
+  
+  

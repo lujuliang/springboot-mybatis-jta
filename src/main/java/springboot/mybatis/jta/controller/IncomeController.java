@@ -1,11 +1,10 @@
 package springboot.mybatis.jta.controller;
 
-import java.sql.Timestamp;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,7 +31,7 @@ public class IncomeController {
     @Autowired
     private UserMapper userMapper;
 
-    @GetMapping("/addincome/1")
+    @PostMapping("/addincome/1")
     @Transactional //   move @Transactional to service layer
     public String addIncome1(@RequestParam("name") String name) {
 
@@ -49,7 +48,7 @@ public class IncomeController {
 
     }
 
-    @GetMapping("/addincome/2")
+    @PostMapping("/addincome/2")
     @Transactional
     public String addIncome2(@RequestParam("name") String name) {
             User user = new User();

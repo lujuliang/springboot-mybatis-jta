@@ -1,0 +1,25 @@
+<configuration scan="true" scanPeriod="30 seconds">
+	<appender name="ROLLING_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>/app/ems/logs/env/test.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>/app/ems/logs/env/test.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] [%-5level] [UID: %X{username}] %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+	
+	    <!-- Keeps original log format -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[%date]|${HOSTNAME}|${appName}|${version}|%-5level|[%thread]|%logger{35}|%line|%msg%n</pattern>
+        </encoder>
+    </appender>
+    
+
+	<root level="DEBUG">
+		<appender-ref ref="ROLLING_FILE"></appender-ref>
+		<appender-ref ref="CONSOLE"/>
+	</root>
+</configuration>

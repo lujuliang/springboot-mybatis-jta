@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd"
+         updateCheck="false">
+   <cache name="lookupCache" statistics="true" maxElementsInMemory="10000" eternal="false" overflowToDisk="false" timeToLiveSeconds="600" />
+</ehcache>

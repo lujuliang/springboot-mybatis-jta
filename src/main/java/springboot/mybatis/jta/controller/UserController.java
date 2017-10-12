@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import springboot.mybatis.jta.bean.database1.User;
-import springboot.mybatis.jta.service.UserServiceImpl;
+import springboot.mybatis.jta.service.impl.UserServiceImpl;
 
 /**
 
