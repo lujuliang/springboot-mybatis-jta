@@ -15,7 +15,6 @@ Run 'maven install', run in spring boot
 Access  http://localhost:9090/test/income/addincome/1?name=test ，get message 'insert success'
 Access http://localhost:9090/income/addincome/2?name=test， failed data not insert to two database
 
-# refer http://www.hifreud.com/2017/07/12/spring-boot-23-jta-handle-distribute-transaction/
 
 #Ecache
  1) add cache: 
