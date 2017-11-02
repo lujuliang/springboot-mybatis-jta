@@ -19,16 +19,5 @@ import springboot.mybatis.jta.cache.webcache.CacheControlHandlerInterceptor;
 @EnableSpringConfigured
 public class WebMvcCacheConfig extends WebMvcConfigurerAdapter implements WebMvcConfigurer
 {
-    @Autowired
-    private CacheControlHandlerInterceptor handlerInterceptor;
-    
-    @Override
-    public void addInterceptors(InterceptorRegistry registry)
-    {
-        if (handlerInterceptor == null){
-            handlerInterceptor = new CacheControlHandlerInterceptor();
-            handlerInterceptor.setCacheControlConfig(new CacheControlConfig());
-        }
-        registry.addInterceptor(handlerInterceptor);
-    }
+   
 }
